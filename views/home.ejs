@@ -7,4 +7,51 @@
 <div id="match-list">
 </div>
 </div>
+<script>
+    var text;
+    var list;
+    document.getElementById("search").addEventListener('keyup',()=>{
+        text = document.querySelectorAll("span.dept");
+        list = document.querySelectorAll("span.roll");
+        var student  = [];
+        for(var i=0;i<list.length;i++)
+        {
+            student.push(list[i].textContent);
+        }
+        for(var i=0;i<student.length;i++)
+        {
+            if(student[i].substring(0,4) === '1101')
+        {
+            text[i].innerHTML = 'ICE';
+        }
+        else if(student[i].substring(0,4) === '1061')
+        {
+            text[i].innerHTML = 'CSE';
+        }
+        else if(student[i].substring(0,4) === '1081')
+        {
+            text[i].innerHTML = 'ECE';
+        }
+        else if(student[i].substring(0,4) === '1071')
+        {
+            text[i].innerHTML = 'EEE';
+        }
+        else if(student[i].substring(0,4) === '1021')
+        {
+            text[i].innerHTML = 'CLE';
+        }
+        else if(student[i].substring(0,4) === '1031')
+        {
+            text[i].innerHTML = 'CEE';
+        }
+        else if(student[i].substring(0,4) === '1111')
+        {
+            text[i].innerHTML = 'MEE';
+        }
+
+        }
+    });
+
+    
+</script>
 <%-include("partials/footer.ejs")%>

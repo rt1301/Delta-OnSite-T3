@@ -6,20 +6,69 @@
     <a href="/home" class="btn admin-link">Home</a>
 </div>
 <div class="container">
-    <%for(var i=0;i<student.length;i++){%>
+    <%student.forEach(function(student){%>
         <div class="card">
             <div class="info">
-            <h3>Name: <span class="name"><%=student[i].name%></span></h3>
-            <span class="text-primary">Roll No: <span class="roll"><%=student[i].roll%></span></span>
+            <h3>Name: <span class="name"><%=student.name%></span></h3>
+            <span class="text-primary">Roll No: <span class="roll"><%=student.roll%></span></span>
+            <span class="text-primary">Dept: <span class="dept"><span></span>
             </div>
             <br>
             <div class="button">
-                <a href="/admin/<%=student[i]._id%>/edit" class="btn btn-warning">Edit</a>
-                <form id="delete-form" action="/admin/<%=student[i]._id%>?_method=DELETE" method="POST">
+                <a href="/admin/<%=student._id%>/edit" class="btn btn-warning">Edit</a>
+                <form id="delete-form" action="/admin/<%=student._id%>?_method=DELETE" method="POST">
                     <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
             </div>
         </div>
-    <%}%>
+    <%})%>
 </div>
+<% 
+var studentList = [];
+student.forEach(student=>{
+    studentList.push((student.roll).toString());
+});
+var num = student.length;
+%>
+<script>
+    var text = document.querySelectorAll("span.dept");
+    var length = <%=num%>;
+    var list  = [];
+    list.push(<%=studentList%>);
+    for(var i=0;i<list.length;i++)
+    {
+        list[i] = list[i].toString();
+        if(list[i].substring(0,4) === '1101')
+        {
+            text[i].innerHTML = 'ICE';
+        }
+        else if(list[i].substring(0,4) === '1061')
+        {
+            text[i].innerHTML = 'CSE';
+        }
+        else if(list[i].substring(0,4) === '1081')
+        {
+            text[i].innerHTML = 'ECE';
+        }
+        else if(list[i].substring(0,4) === '1071')
+        {
+            text[i].innerHTML = 'EEE';
+        }
+        else if(list[i].substring(0,4) === '1021')
+        {
+            text[i].innerHTML = 'CLE';
+        }
+        else if(list[i].substring(0,4) === '1031')
+        {
+            text[i].innerHTML = 'CEE';
+        }
+        else if(list[i].substring(0,4) === '1111')
+        {
+            text[i].innerHTML = 'MEE';
+        }
+
+    }
+
+    
+</script>
 <%-include("partials/footer.ejs")%>

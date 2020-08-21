@@ -51,7 +51,16 @@ app.post("/admin/register",(req, res)=>{
 });
 // Home Page
 app.get("/home",(req, res)=>{
-    res.render('home');
+    Student.find({},(err,foundStudents)=>{
+        if(err)
+        {
+            console.log(err);
+        }
+        else
+        {
+            res.render('home',{student:foundStudents});
+        }
+    })
 });
 // Api Page
 app.get("/api/students",async (req, res)=>{

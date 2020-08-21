@@ -26,12 +26,13 @@ const outputHtml = (matches)=>
         {
              html.push(`<div class="card card-body mb-1">
             <h4>Name: <span class="name">${matches[i].name}</span></h4> <span class="text-primary">RollNo: <span class="roll">${matches[i].roll}</span></span>
+            <span class="text-primary">Dept: <span class="dept"></span></span>
              </div>`);
         }
         matchList.innerHTML = html.join('');
     }
 }
-if(search.length!==0)
+if(search)
 {
     search.addEventListener('input',()=>searchStudents(search.value));
 }

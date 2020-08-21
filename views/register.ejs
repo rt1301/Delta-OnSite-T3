@@ -1,0 +1,21 @@
+<%-include("partials/header.ejs")%>
+
+<form action="/admin/register" method="POST">
+<div class="auth-container">
+    <h1>Register</h1>
+<hr>
+<div class="form-group">
+    <label for="name">Name</label>
+    <input id="username" type="text" name="student[name]" class="form-control" autocomplete="off" placeholder="Type your Name here" required>
+</div>
+<div class="form-group">
+    <label for="roll">Roll Number</label>
+    <input id="roll-no" type="text" name="student[roll]" class="form-control" autocomplete="off" placeholder="Type your Roll no. here" required>
+</div>
+<hr>
+<div class="form-group">
+    <button type="submit" class="btn btn-login">Submit</button>
+</div>
+</div>
+</form>
+<%-include("partials/footer.ejs")%>

@@ -1,0 +1,17 @@
+<%-include("partials/header.ejs")%>
+<form action="/admin/login" method="POST">
+    <div class="auth-container">
+      <h1>LogIn</h1>
+      <a href="/home" class="btn admin-link">Home</a>
+      <hr>
+  
+      <label for="Username"><b>Username</b></label>
+      <input id="username" type="text" placeholder="username" name="username" autocomplete="off" required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input id="password" type="password" placeholder="Enter Password" autocomplete="off" name="password"required>
+      <hr>
+      <button type="submit" class="btn btn-login">Login</button>
+    </div>
+  </form>
+<%-include("partials/footer.ejs")%>

@@ -1,0 +1,25 @@
+<%-include("partials/header.ejs")%>
+<div class="header">
+    <h1>All Students:</h1>
+    <a class="btn admin-link" href="/admin/logout">Log Out</a>
+    <a class="btn admin-link" href="/admin/register">New Registration</a>
+    <a href="/home" class="btn admin-link">Home</a>
+</div>
+<div class="container">
+    <%for(var i=0;i<student.length;i++){%>
+        <div class="card">
+            <div class="info">
+            <h3>Name: <span class="name"><%=student[i].name%></span></h3>
+            <span class="text-primary">Roll No: <span class="roll"><%=student[i].roll%></span></span>
+            </div>
+            <br>
+            <div class="button">
+                <a href="/admin/<%=student[i]._id%>/edit" class="btn btn-warning">Edit</a>
+                <form id="delete-form" action="/admin/<%=student[i]._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+    <%}%>
+</div>
+<%-include("partials/footer.ejs")%>
